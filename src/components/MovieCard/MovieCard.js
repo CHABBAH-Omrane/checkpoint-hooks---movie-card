@@ -2,6 +2,7 @@ import React from 'react';
 import { Button, Card } from 'react-bootstrap';
 import '../MovieCard/MovieCard.css';
 import StarRating from '../StarRating/StarRating';
+import StarRatingComponent from 'react-star-rating-component';
 
 const MovieCard = ({ elm, remove }) => {
 	return (
@@ -15,10 +16,16 @@ const MovieCard = ({ elm, remove }) => {
 					</Card.Text>
 					<Card.Body className="info">
 						<Button variant="primary" onClick={() => elm.removeCardMovie()}>
-							Remove Movie
+							Movie
 						</Button>
 						<Card.Text className="note">
-							<StarRating elm={elm} />
+							{/* <StarRating elm={elm} /> */}
+							<StarRatingComponent
+								name="star" /* name of the radio input, it is required */
+								value={
+									elm.rating
+								} /* number of selected icon (`0` - none, `1` - first) */
+							/>
 						</Card.Text>
 					</Card.Body>
 				</Card.Body>

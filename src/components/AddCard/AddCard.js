@@ -72,7 +72,7 @@ const AddCard = (props) => {
 							<Form.Control
 								type="text"
 								placeholder="Rate"
-								name="ratinr"
+								name="rating"
 								onChange={handleChange}
 								autoFocus
 							/>

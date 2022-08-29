@@ -6,7 +6,7 @@ import AddCard from './components/AddCard/AddCard';
 
 function App() {
 	const [filter, setFilter] = useState('');
-
+	const [rating, setRating] = useState(1);
 	const [movieList, setMovieList] = useState([
 		{
 			title: 'The Boss Baby',
@@ -57,17 +57,21 @@ function App() {
 		setMovieList([...movieList, val]);
 	};
 
+	const handleRating = (number) => {
+		setRating(number);
+	};
+
 	return (
 		<div className="App">
 			<header className="App-header">
-				<Filter handleFilter={handleFilter} />
+				<Filter handleFilter={handleFilter} handleRating={handleRating} />
 				<MovieList
 					list={movieList.filter(
 						(elm) =>
 							elm.title
 								.toLocaleLowerCase()
-								.includes(filter.toLocaleLowerCase()) ||
-							elm.rating.includes(filter)
+								.includes(filter.toLocaleLowerCase()) && elm.rating >= rating
+						// ||elm.rating.includes(filter)
 					)}
 				/>
 				<AddCard handleAddMovie={handleAddMovie} />
