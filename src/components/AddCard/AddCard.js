@@ -20,6 +20,7 @@ const AddCard = (props) => {
 	};
 	const handleSave = () => {
 		props.handleAddMovie(inputs);
+		//add the id and trailerLink in the modals
 		setInputs({ title: '', description: '', posterURL: '', rating: '' });
 		handleClose();
 	};

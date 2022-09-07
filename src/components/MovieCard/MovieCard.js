@@ -3,6 +3,7 @@ import { Button, Card } from 'react-bootstrap';
 import '../MovieCard/MovieCard.css';
 import StarRating from '../StarRating/StarRating';
 import StarRatingComponent from 'react-star-rating-component';
+import { Link, Outlet } from 'react-router-dom';
 
 const MovieCard = ({ elm, remove }) => {
 	return (
@@ -15,9 +16,14 @@ const MovieCard = ({ elm, remove }) => {
 						{elm.description}
 					</Card.Text>
 					<Card.Body className="info">
-						<Button variant="primary" onClick={() => elm.removeCardMovie()}>
-							Movie
-						</Button>
+						<Link to={`/description/${elm.id}`}>
+							<Button
+								variant="primary" /*onClick={() => elm.removeCardMovie()}*/
+							>
+								Movie
+							</Button>
+						</Link>
+
 						<Card.Text className="note">
 							{/* <StarRating elm={elm} /> */}
 							<StarRatingComponent

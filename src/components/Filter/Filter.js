@@ -1,4 +1,5 @@
 import React from 'react';
+import { Router, Routes, Route, Link, Outlet } from 'react-router-dom';
 
 import StarRatingComponent from 'react-star-rating-component';
 
@@ -6,6 +7,12 @@ const Filter = (props) => {
 	return (
 		<div>
 			<form class="d-flex" role="search">
+				<Link to="/">
+					<button class="btn btn-outline-success" type="submit">
+						Home
+					</button>
+				</Link>
+				<Outlet />
 				<input
 					class="form-control me-2"
 					type="search"
